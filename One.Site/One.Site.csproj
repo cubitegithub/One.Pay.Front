@@ -29,7 +29,6 @@
     <Compile Remove="ClientApp\src\views\forms\**" />
     <Compile Remove="ClientApp\src\views\hilo\**" />
     <Compile Remove="ClientApp\src\views\icons\**" />
-    <Compile Remove="ClientApp\src\views\NewFolder\**" />
     <Compile Remove="ClientApp\src\views\notifications\**" />
     <Compile Remove="ClientApp\src\views\plugins\**" />
     <Compile Remove="ClientApp\src\views\smart-table\**" />
@@ -41,7 +40,6 @@
     <Content Remove="ClientApp\src\views\forms\**" />
     <Content Remove="ClientApp\src\views\hilo\**" />
     <Content Remove="ClientApp\src\views\icons\**" />
-    <Content Remove="ClientApp\src\views\NewFolder\**" />
     <Content Remove="ClientApp\src\views\notifications\**" />
     <Content Remove="ClientApp\src\views\plugins\**" />
     <Content Remove="ClientApp\src\views\smart-table\**" />
@@ -52,7 +50,6 @@
     <EmbeddedResource Remove="ClientApp\src\views\forms\**" />
     <EmbeddedResource Remove="ClientApp\src\views\hilo\**" />
     <EmbeddedResource Remove="ClientApp\src\views\icons\**" />
-    <EmbeddedResource Remove="ClientApp\src\views\NewFolder\**" />
     <EmbeddedResource Remove="ClientApp\src\views\notifications\**" />
     <EmbeddedResource Remove="ClientApp\src\views\plugins\**" />
     <EmbeddedResource Remove="ClientApp\src\views\smart-table\**" />
@@ -64,7 +61,6 @@
     <None Remove="ClientApp\src\views\forms\**" />
     <None Remove="ClientApp\src\views\hilo\**" />
     <None Remove="ClientApp\src\views\icons\**" />
-    <None Remove="ClientApp\src\views\NewFolder\**" />
     <None Remove="ClientApp\src\views\notifications\**" />
     <None Remove="ClientApp\src\views\plugins\**" />
     <None Remove="ClientApp\src\views\smart-table\**" />
