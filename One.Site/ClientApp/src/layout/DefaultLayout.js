@@ -9,6 +9,9 @@ const Page401 = lazy(() => import('../views/pages/page401/Page401'));
 const Page404 = lazy(() => import('../views/pages/page404/Page404'));
 const Page500 = lazy(() => import('../views/pages/page500/Page500'));
 const PagoNoDisponible = lazy(() => import('../views/Pay/PagoNoDisponible'));
+const SeleccionProveedor = lazy(() => import('../views/Pay/SeleccionProveedor'));
+
+
 
 const DefaultLayout = () => {
     return (
@@ -25,13 +28,14 @@ const DefaultLayout = () => {
                         <Route path="/401" element={<Page401 />} />
                         <Route path="/500" element={<Page500 />} />
                         <Route path="/PagoNoDisponible" element={<PagoNoDisponible />} />
+                        <Route path="/SeleccionProveedor" element={<SeleccionProveedor />} />
 
                         {/* Ruta 404 */}
                         <Route path="*" element={<Page404 />} />
                     </Routes>
                 </Suspense>
-                <AppFooter />
             </div>
+            <AppFooter />
         </>
     );
 };
