@@ -46,6 +46,20 @@ const SeleccionProveedor = () => {
         setTipoProveedor(proveedorBanco)
         setCurrentStep(1)
     }
+    const cardBaseStyle = {
+        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+        cursor: 'pointer',
+    };
+
+    const handleMouseEnter = (e) => {
+        e.currentTarget.style.transform = 'scale(1.05)';
+        e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
+    };
+
+    const handleMouseLeave = (e) => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.boxShadow = 'none';
+    };
 
     const handleNext = () => {
         if (currentStep < 3) setCurrentStep(prev => prev + 1)
@@ -217,131 +231,147 @@ const SeleccionProveedor = () => {
 
     return (
         <>
-            
-            {/* Tarjetas de proveedores */}
-            <h1 className="my-4 text-center">Seleccione el banco del proveedor</h1>
-            {!TipoProveedor && (
-                <div className="bg-light min-vh-100 d-flex flex-column align-items-center justify-content-start py-4">
-                     <CContainer>
-               
-                    <CRow className="d-flex justify-content-center">
-                        <CCol xs={12} sm={6} md={3}>
-                            <CCard onClick={() => handleSeleccionPago('Produbanco')} className="text-center cursor-pointer mb-4">
-                                <CCardHeader className="bg-success text-white">Produbanco</CCardHeader>
-                                <CCardBody className="d-flex justify-content-center">
-                                        <img
-                                            src={produbancoLogo}
-                                            alt="Logo Produbanco"
-                                            className="img-fluid"
-                                           
-                                        />
-                                    </CCardBody>
-                                    <CCardFooter className="border-success border-3 text-start">
-                                        <div className="d-flex flex-wrap mb-1">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Tipo:</strong>
-                                            <span className="text-break">Corriente</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap mb-1">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Número:</strong>
-                                            <span className="text-break">2006177944</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>RUC:</strong>
-                                            <span className="text-break">0993334642001</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Nombre:</strong>
-                                            <span className="text-break">ONEBYTE S.A.</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Correo:</strong>
-                                            <span className="text-break">pagos@onebyte.com.ec</span>
-                                        </div>
-                                    </CCardFooter>
-                            </CCard>
-                        </CCol>
+            <CContainer>
+                {/* Tarjetas de proveedores */}
+                <h1 className="my-4 text-center">Seleccione el banco del proveedor</h1>
+                {!TipoProveedor && (
+                    <div className="bg-light min-vh-100 d-flex flex-column align-items-center justify-content-start py-4">
+                        <CCard className="p-4 w-100">
 
-                        <CCol xs={12} sm={6} md={3}>
-                                <CCard onClick={() => handleSeleccionPago('Pichincha')} className="text-center cursor-pointer mb-4">
-                                <CCardHeader className="bg-warning text-dark">Banco Pichincha</CCardHeader>
-                                <CCardBody className="d-flex justify-content-center">
-                                        <img src={pichinchaLogo} alt="Logo Pichincha" className="img-fluid" />
-                                    </CCardBody>
-                                    <CCardFooter className="border-warning border-3 text-start">
-                                        <div className="d-flex flex-wrap mb-1">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Tipo:</strong>
-                                            <span className="text-break">Corriente</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap mb-1">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Número:</strong>
-                                            <span className="text-break">2100285305</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>RUC:</strong>
-                                            <span className="text-break">0993334642001</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Nombre:</strong>
-                                            <span className="text-break">ONEBYTE S.A.</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Correo:</strong>
-                                            <span className="text-break">pagos@onebyte.com.ec</span>
-                                        </div>
-                                    </CCardFooter>
-                            </CCard>
-                        </CCol>
 
-                        <CCol xs={12} sm={6} md={3}>
-                                <CCard onClick={() => handleSeleccionPago('Guayaquil')} className="text-center cursor-pointer mb-4">
-                                <CCardHeader className="bg-danger text-white">Banco Guayaquil</CCardHeader>
-                                <CCardBody className="d-flex justify-content-center">
-                                        <img src={guayaquilLogo} alt="Logo Guayaquil" className="img-fluid" />
-                                    </CCardBody>
-                                    <CCardFooter className="border-danger border-3 text-start">
-                                        <div className="d-flex flex-wrap mb-1">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Tipo:</strong>
-                                            <span className="text-break">Corriente</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap mb-1">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Número:</strong>
-                                            <span className="text-break">0043115359</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>RUC:</strong>
-                                            <span className="text-break">0993334642001</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Nombre:</strong>
-                                            <span className="text-break">ONEBYTE S.A.</span>
-                                        </div>
-                                        <div className="d-flex flex-wrap">
-                                            <strong style={{ display: 'inline-block', width: '90px' }}>Correo:</strong>
-                                            <span className="text-break">pagos@onebyte.com.ec</span>
-                                        </div>
-                                    </CCardFooter>
+                            <CRow className="d-flex justify-content-center">
+                                <CCol xs={12} sm={6} md={4}>
+                                    <CCard style={{ cardBaseStyle, backgroundColor: '#006636' }}
+                                        onMouseEnter={handleMouseEnter}
+                                        onMouseLeave={handleMouseLeave} onClick={() => handleSeleccionPago('Produbanco')} className="text-center cursor-pointer p-4 m">
+                                        <CCardBody className="d-flex justify-content-center">
+                                            <img
+                                                src={produbancoLogo}
+                                                alt="Logo Produbanco"
+                                                className="img-fluid"
 
-                            </CCard>
-                            </CCol>
-                        </CRow>
-                    </CContainer>
-                </div>
-                
-            )}
+                                            />
+                                        </CCardBody>
+                                        <CCardFooter className="text-start" style={{
+                                            color: '#FFFFFF' 
+                                        }}>
+                                            <div className="d-flex flex-wrap mb-1">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Tipo:</strong>
+                                                <span className="text-break">Corriente</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap mb-1">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Número:</strong>
+                                                <span className="text-break">2006177944</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>RUC:</strong>
+                                                <span className="text-break">0993334642001</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Nombre:</strong>
+                                                <span className="text-break">ONEBYTE S.A.</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Correo:</strong>
+                                                <span className="text-break">pagos@onebyte.com.ec</span>
+                                            </div>
+                                        </CCardFooter>
+                                    </CCard>
+                                </CCol>
 
-            {/* Formulario del wizard */}
-            {TipoProveedor && (
-                <CRow className="justify-content-center">
-                    <CCol xs={12} md={8}>
-                        <CCard className="text-center border-success border-3">
-                            <CCardHeader className="bg-light">
-                                <strong>{`Paso ${currentStep} de 3 — Banco del proveedor: ${TipoProveedor}`}</strong>
-                            </CCardHeader>
-                            <CCardBody>{renderStepContent()}</CCardBody>
+                                <CCol xs={12} sm={6} md={4}>
+                                    <CCard style={{ cardBaseStyle, backgroundColor: '#ffde00' }}
+                                        onMouseEnter={handleMouseEnter}
+                                        onMouseLeave={handleMouseLeave} onClick={() => handleSeleccionPago('Pichincha')} className="text-center cursor-pointer p-4">
+                                        <CCardBody className="d-flex justify-content-center" style={{
+                                            backgroundColor: '#ffde00'
+                                        }}>
+                                            <img src={pichinchaLogo} alt="Logo Pichincha" className="img-fluid" />
+                                        </CCardBody>
+                                        <CCardFooter className="text-start" style={{
+                                            color: '#042955'
+                                        }}>
+                                            <div className="d-flex flex-wrap mb-1">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Tipo:</strong>
+                                                <span className="text-break">Corriente</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap mb-1">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Número:</strong>
+                                                <span className="text-break">2100285305</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>RUC:</strong>
+                                                <span className="text-break">0993334642001</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Nombre:</strong>
+                                                <span className="text-break">ONEBYTE S.A.</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Correo:</strong>
+                                                <span className="text-break">pagos@onebyte.com.ec</span>
+                                            </div>
+                                        </CCardFooter>
+                                    </CCard>
+                                </CCol>
+
+                                <CCol xs={12} sm={6} md={4}>
+                                    <CCard style={{ cardBaseStyle, backgroundColor: '#bb1c6d' }}
+                                        onMouseEnter={handleMouseEnter}
+                                        onMouseLeave={handleMouseLeave} onClick={() => handleSeleccionPago('Guayaquil')} className="text-center cursor-pointer p-4">
+                                        <CCardBody className="d-flex justify-content-center" style={{
+                                          
+                                        }}>
+                                            <img src={guayaquilLogo} alt="Logo Guayaquil" className="img-fluid" />
+                                        </CCardBody>
+                                        <CCardFooter className="" style={{ color: '#FFFFFF' 
+                                            
+                                        }}>
+                                            <div className="d-flex flex-wrap mb-1">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Tipo:</strong>
+                                                <span className="text-break">Corriente</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap mb-1">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Número:</strong>
+                                                <span className="text-break">0043115359</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>RUC:</strong>
+                                                <span className="text-break">0993334642001</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Nombre:</strong>
+                                                <span className="text-break">ONEBYTE S.A.</span>
+                                            </div>
+                                            <div className="d-flex flex-wrap">
+                                                <strong style={{ display: 'inline-block', width: '90px' }}>Correo:</strong>
+                                                <span className="text-break">pagos@onebyte.com.ec</span>
+                                            </div>
+                                        </CCardFooter>
+
+                                    </CCard>
+                                </CCol>
+                            </CRow>
+
                         </CCard>
-                    </CCol>
-                </CRow>
-            )}
+                    </div>
+
+                )}
+
+                {/* Formulario del wizard */}
+                {TipoProveedor && (
+                    <CRow className="justify-content-center">
+                        <CCol xs={12} md={8}>
+                            <CCard className="text-center border-1">
+                                <CCardHeader className="bg-light border-2">
+                                    <strong>{`Paso ${currentStep} de 3 — Banco del proveedor: ${TipoProveedor}`}</strong>
+                                </CCardHeader>
+                                <CCardBody>{renderStepContent()}</CCardBody>
+                            </CCard>
+                        </CCol>
+                    </CRow>
+                )}
+            </CContainer>
         </>
     )
 }
